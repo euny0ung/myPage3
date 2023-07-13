@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>실습사이트</title>
+    <style>
+      ul {
+        list-style: none; /*ul 앞에 점 붙는거 제거*/
+      }
+      /*헤더 영역*/
+      .site-name {
+        background-color: darkturquoise;
+        text-align: center;
+      }
+      .main-menu {
+        background-color: aliceblue;
+      }
+      .main-menu > ul::after {
+        clear: both; /*ul 태그가 끝나면 float: left의 영향을 안받게 하겠다*/
+      }
+      .main-menu-item {
+        border: 1px solid black;
+        float: left;
+        width: 20%;
+        height: 80px;
+        text-align: center;
+        font-size: 1.5em;
+        /*width를 설정할 때 box-sizing 중에 content-box가 기본 설정이다. 그런데 윌는 외곽선을 사용할 것이므로 border-box로 써줄 것. 이래야 크기가 설정될 때 외곽선을 포함함*/
+      }
+      * {
+        margin: 0; /*요소 바깥의 여백*/
+        padding: 0; /*요소 내부의 여백*/
+        box-sizing: border-box;
+      }
+
+      /*콘텐트 영역*/
+      .main {
+        background-color: skyblue;
+        float: left;
+        width: 75%;
+        height: 100%;
+      }
+      .aside {
+        background-color: lawngreen;
+        float: left;
+        width: 25%;
+      }
+      .content {
+        height: 500px;
+      }
+      .main > section {
+        border: 1px solid black;
+        height: 50%;
+        /* margin: 20px; 마진끼리 겹칠 땐 큰것만 남음 */
+        padding: 20px;
+      } /*main의 자식 section*/
+      .content-parent::after {
+        clear: both;
+      }
+      footer {
+        text-align: center;
+        font-size: 3em;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1 class="site-name">사이트</h1>
+      <nav class="main-menu">
+        <ul>
+          <li class="main-menu-item">1menu</li>
+          <li class="main-menu-item">2menu</li>
+          <li class="main-menu-item">3menu</li>
+          <li class="main-menu-item">4menu</li>
+          <li class="main-menu-item">5menu</li>
+        </ul>
+      </nav>
+    </header>
+    <section>
+      <main class="content main">
+        <section>1section</section>
+        <section>2section</section>
+      </main>
+      <aside class="content aside">광고 배너</aside>
+    </section>
+    <footer>저작권</footer>
+  </body>
+</html>
